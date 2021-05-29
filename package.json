@@ -1,30 +1,69 @@
 {
-  "name": "book-effects",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-book-effects",
+  "version": "0.4.1",
+  "license": "MIT",
+  "description": "3D page flip effect for Vue.js",
+  "homepage": "https://examples.nsearh.com/book-effects/",
+  "author": "Sea-DH1 <a627247084@gmail.com> (https://github.com/Sea-DH1/vue-book-effects)",
+  "repository": "github:Sea-DH1/vue-book-effects",
+  "keywords": [
+    "vue",
+    "vue-book-effects",
+    "component",
+    "book",
+    "page",
+    "book-effects",
+    "turn",
+    "3d"
+  ],
+  "main": "dist/vue-book-effects.cjs.js",
+  "module": "dist/vue-book-effects.es.js",
+  "unpkg": "dist/vue-book-effects.min.js",
+  "browser": {
+    "./sfc": "src/components/vue-book-effects.vue"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --dest demo",
+    "dist": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "rematrix": "^0.7.2",
-    "vue": "^2.6.11"
+    "rematrix": "^0.7.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-material-design-icons": "^4.11.0",
-    "vue-template-compiler": "^2.6.11"
-  }
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-url": "^5.0.1",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-service": "^4.3.0",
+    "autoprefixer": "^9.5.1",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.4.1",
+    "core-js": "^3.6.5",
+    "rollup": "^1.12.5",
+    "rollup-plugin-coffee-script": "^2.0.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-vue": "^5.0.0",
+    "svgo-loader": "^2.2.1",
+    "vue": "^2.6.11",
+    "vue-cli-plugin-coffeescript": "^0.0.3",
+    "vue-cli-plugin-pug": "~2.0.0",
+    "vue-material-design-icons": "^3.2.0",
+    "vue-ribbon": "^1.0.1",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "files": [
+    "dist",
+    "src/components/vue-book-effects.vue",
+    "src/vue-book-effects.js"
+  ]
 }

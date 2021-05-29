@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="{ 'has-mouse': hasMouse }" @touchstart="hasMouse = false">
-    <book-effects
+    <vue-book-effects
       class="book-effects"
       :pages="pages"
       :pagesHiRes="pagesHiRes"
@@ -21,12 +21,12 @@
         <minus-icon class="btn minus" :class="{ disabled: !bookEffects.canZoomOut }" @click="bookEffects.zoomOut" />
         <right-icon class="btn right" :class="{ disabled: !bookEffects.canFlipRight }" @click="bookEffects.flipRight" />
       </div>
-    </book-effects>
+    </vue-book-effects>
   </div>
 </template>
 
 <script>
-import BookEffects from '@/components/book-effects'
+import VueBookEffects from '@/components/vue-book-effects'
 
 import 'vue-material-design-icons/styles.css'
 import LeftIcon from 'vue-material-design-icons/ChevronLeftCircle'
@@ -37,7 +37,7 @@ import MinusIcon from 'vue-material-design-icons/MinusCircle'
 export default {
   name: 'App',
   components: {
-    BookEffects,
+    VueBookEffects,
     LeftIcon,
     RightIcon,
     PlusIcon,

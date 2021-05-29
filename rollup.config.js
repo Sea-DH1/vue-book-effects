@@ -10,7 +10,7 @@ import { name, version } from './package.json'
 const banner = `/*!
  * @license
  * ${name} v${version}
- * Copyright © ${new Date().getFullYear()} Takeshi Sone.
+ * Copyright © ${new Date().getFullYear()} Sea-DH1.
  * Released under the MIT License.
  */
 `
@@ -29,21 +29,21 @@ const plugins = [
 
 export default [
   {
-    input: 'src/components/book-effects.vue',
+    input: 'src/components/vue-book-effects.vue',
     external: 'rematrix',
     output: [
-      { banner, format: 'es', file: 'dist/vue-booke-ffects.es.js' },
-      { banner, format: 'cjs', file: 'dist/vue-booke-ffects.cjs.js' }
+      { banner, format: 'es', file: 'dist/vue-book-effects.es.js' },
+      { banner, format: 'cjs', file: 'dist/vue-book-effects.cjs.js' }
     ],
     plugins
   },
   {
-    input: 'src/wrapper.coffee',
-    output: { banner, format: 'iife', file: 'dist/vue-booke-ffects.js' },
+    input: 'src/vue-book-effects.js',
+    output: { banner, format: 'iife', file: 'dist/vue-book-effects.js' },
     plugins
   },
   {
-    input: 'src/wrapper.coffee',
+    input: 'src/vue-book-effects.js',
     output: { banner, format: 'iife', file: 'dist/vue-book-effects.min.js' },
     plugins: [...plugins, terser({ output: { comments: /copyright|license/i } })]
   }

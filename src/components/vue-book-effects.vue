@@ -30,7 +30,7 @@
       @mouseup="onMouseUp"
       @wheel="onWheel"
     >
-      <div class="flipbook-container" :style="{ transform: `scale(${zoom})` }">
+      <div class="book-container" :style="{ transform: `scale(${zoom})` }">
         <div class="click-to-flip left" :style="{ cursor: canFlipLeft ? 'pointer' : 'auto' }" @click="flipLeft" />
         <div class="click-to-flip right" :style="{ cursor: canFlipRight ? 'pointer' : 'auto' }" @click="flipRight" />
         <div :style="{ transform: `translateX(${centerOffsetSmoothed}px)` }">
@@ -98,8 +98,8 @@
 </template>
 
 <script>
-import Matrix from '@/base/js/Matrix'
-import spinner from '@/assets/images/spinner.svg'
+import Matrix from '../base/js/Matrix'
+import spinner from '../assets/images/spinner.svg'
 
 const easeIn = x => {
   return Math.pow(x, 2)
@@ -120,7 +120,7 @@ const easeInOut = x => {
 const IE = /Trident/.test(navigator.userAgent)
 
 export default {
-  name: 'book-effects',
+  name: 'vue-book-effects',
   props: {
     pages: {
       type: Array,
@@ -1188,7 +1188,7 @@ export default {
   overflow: hidden;
 }
 
-.flipbook-container {
+.book-container {
   position: relative;
   width: 100%;
   height: 100%;
