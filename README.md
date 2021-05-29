@@ -180,9 +180,9 @@ This component exposes some properties and methods as slot properties.
 Example usage:
 
 ```html
-<vue-book-effects :pages="pages" v-slot="vue-book-effects">
-  <button @click="vue-book-effects.flipLeft">Previous Page</button>
-  <button @click="vue-book-effects.flipRight">Next Page</button>
+<vue-book-effects :pages="pages" v-slot="bookEffects">
+  <button @click="bookEffects.flipLeft">Previous Page</button>
+  <button @click="bookEffects.flipRight">Next Page</button>
 </vue-book-effects>
 ```
 
