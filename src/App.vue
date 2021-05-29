@@ -1,11 +1,12 @@
 <template>
   <div id="app" :class="{ 'has-mouse': hasMouse }" @touchstart="hasMouse = false">
     <book-effects
-      class="flipbook"
+      class="book-effects"
       :pages="pages"
       :pagesHiRes="pagesHiRes"
       :startPage="pageNum"
-      ref="flipbook"
+      v-slot="bookEffects"
+      ref="bookEffects"
       @flip-left-start="onFlipLeftStart"
       @flip-left-end="onFlipLeftEnd"
       @flip-right-start="onFlipRightStart"
@@ -13,29 +14,13 @@
       @zoom-start="onZoomStart"
       @zoom-end="onZoomEnd"
     >
-      <!-- <div class="action-bar">
-        <left-icon
-          class="btn left"
-          :class="{ disabled: !flipbook.canFlipLeft }"
-          @click="flipbook.flipLeft"
-        />
-        <plus-icon
-          class="btn plus"
-          :class="{ disabled: !flipbook.canZoomIn }"
-          @click="flipbook.zoomIn"
-        />
-        <span class="page-num"> Page {{ flipbook.page }} of {{ flipbook.numPages }} </span>
-        <minus-icon
-          class="btn minus"
-          :class="{ disabled: !flipbook.canZoomOut }"
-          @click="flipbook.zoomOut"
-        />
-        <right-icon
-          class="btn right"
-          :class="{ disabled: !flipbook.canFlipRight }"
-          @click="flipbook.flipRight"
-        />
-      </div> -->
+      <div class="action-bar">
+        <left-icon class="btn left" :class="{ disabled: !bookEffects.canFlipLeft }" @click="bookEffects.flipLeft" />
+        <plus-icon class="btn plus" :class="{ disabled: !bookEffects.canZoomIn }" @click="bookEffects.zoomIn" />
+        <span class="page-num"> Page {{ bookEffects.page }} of {{ bookEffects.numPages }} </span>
+        <minus-icon class="btn minus" :class="{ disabled: !bookEffects.canZoomOut }" @click="bookEffects.zoomOut" />
+        <right-icon class="btn right" :class="{ disabled: !bookEffects.canFlipRight }" @click="bookEffects.flipRight" />
+      </div>
     </book-effects>
   </div>
 </template>
@@ -44,19 +29,19 @@
 import BookEffects from '@/components/book-effects'
 
 import 'vue-material-design-icons/styles.css'
-// import LeftIcon from 'vue-material-design-icons/ChevronLeftCircle'
-// import RightIcon from 'vue-material-design-icons/ChevronRightCircle'
-// import PlusIcon from 'vue-material-design-icons/PlusCircle'
-// import MinusIcon from 'vue-material-design-icons/MinusCircle'
+import LeftIcon from 'vue-material-design-icons/ChevronLeftCircle'
+import RightIcon from 'vue-material-design-icons/ChevronRightCircle'
+import PlusIcon from 'vue-material-design-icons/PlusCircle'
+import MinusIcon from 'vue-material-design-icons/MinusCircle'
 
 export default {
   name: 'App',
   components: {
-    BookEffects
-    // LeftIcon,
-    // RightIcon,
-    // PlusIcon,
-    // MinusIcon
+    BookEffects,
+    LeftIcon,
+    RightIcon,
+    PlusIcon,
+    MinusIcon
   },
   data() {
     return {
@@ -68,38 +53,22 @@ export default {
   },
 
   mounted() {
-    window.addEventListener('keydown', (ev) => {
-      const flipbook = this.$refs.flipbook
-      if (!flipbook) {
+    window.addEventListener('keydown', ev => {
+      const bookEffects = this.$refs.bookEffects
+      if (!bookEffects) {
         return
       }
-      if (ev.keyCode === 37 && flipbook.canFlipLeft) {
-        flipbook.flipLeft()
+      if (ev.keyCode === 37 && bookEffects.canFlipLeft) {
+        bookEffects.flipLeft()
       }
-      if (ev.keyCode === 39 && flipbook.canFlipRight) {
-        return flipbook.flipRight()
+      if (ev.keyCode === 39 && bookEffects.canFlipRight) {
+        return bookEffects.flipRight()
       }
     })
 
     setTimeout(() => {
-      this.pages = [
-        null,
-        './images/1.jpg',
-        './images/2.jpg',
-        './images/3.jpg',
-        './images/4.jpg',
-        './images/5.jpg',
-        './images/6.jpg'
-      ]
-      this.pagesHiRes = [
-        null,
-        './images-large/1.jpg',
-        './images-large/2.jpg',
-        './images-large/3.jpg',
-        './images-large/4.jpg',
-        './images-large/5.jpg',
-        './images-large/6.jpg'
-      ]
+      this.pages = [null, 'images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg', 'images/6.jpg']
+      this.pagesHiRes = [null, 'images-large/1.jpg', 'images-large/2.jpg', 'images-large/3.jpg', 'images-large/4.jpg', 'images-large/5.jpg', 'images-large/6.jpg']
     }, 1)
 
     window.addEventListener('hashchange', this.setPageFromHash)
@@ -143,7 +112,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 html,
 body {
   margin: 0;
@@ -209,12 +178,12 @@ a {
   margin-left: 10px;
 }
 
-.flipbook .viewport {
+.book-effects .viewport {
   width: 90vw;
   height: calc(100vh - 50px - 40px);
 }
 
-.flipbook .bounding-box {
+.book-effects .bounding-box {
   box-shadow: 0 0 20px #000;
 }
 
