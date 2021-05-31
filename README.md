@@ -54,7 +54,7 @@ export default {
 </script>
 ```
 
-If you would like to build from `.vue` directly (including CoffeeScript transpile, etc),
+If you would like to build from `.vue`,
 
 ```javascript
 import VueBookEffects from 'vue-book-effects/sfc'

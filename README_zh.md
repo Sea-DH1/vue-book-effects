@@ -43,18 +43,7 @@ yarn add vue-book-effects
 </style>
 ```
 
-If installed as a module,
-
-```html
-<script>
-import VueBookEffects from 'vue-book-effects'
-export default {
-  components: { VueBookEffects }
-}
-</script>
-```
-
-If you would like to build from `.vue` directly (including CoffeeScript transpile, etc),
+如果你想直接从 `.vue` 构建，
 
 ```javascript
 import VueBookEffects from 'vue-book-effects/sfc'
