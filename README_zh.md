@@ -10,7 +10,7 @@
 
 ## 安装
 
-Install as a module:
+作为模块安装：
 
 ```
 npm i -S vue-book-effects
@@ -22,7 +22,7 @@ or
 yarn add vue-book-effects
 ```
 
-Or include in html:
+直接在 html 中使用：
 
 ```html
 <script src="https://unpkg.com/vue-book-effects"></script>
