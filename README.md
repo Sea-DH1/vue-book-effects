@@ -6,6 +6,8 @@
 
 Demo page is [here](https://examples.nsearh.com/book-effects/).
 
+[中文文档](https://github.com/Sea-DH1/vue-book-effects/blob/main/README_zh.md)
+
 ## Installation
 
 Install as a module:
