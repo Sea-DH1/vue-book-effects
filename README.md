@@ -6,6 +6,8 @@
 
 Demo page is [here](https://examples.nsearh.com/book-effects/).
 
+[中文文档](https://github.com/Sea-DH1/vue-book-effects/blob/main/README_zh.md)
+
 ## Installation
 
 Install as a module:
@@ -52,7 +54,7 @@ export default {
 </script>
 ```
 
-If you would like to build from `.vue` directly (including CoffeeScript transpile, etc),
+If you would like to build from `.vue`,
 
 ```javascript
 import VueBookEffects from 'vue-book-effects/sfc'
